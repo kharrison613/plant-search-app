@@ -1,27 +1,29 @@
+// src/components/SearchBar.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchPlants } from '../features/plantsSlice';
+import { fetchPlants } from '../redux/plantSlice';
 
 const SearchBar = () => {
-  const [query, setQuery] = useState('');
-  const dispatch = useDispatch();
+    const [searchTerm, setSearchTerm] = useState('');
+    const dispatch = useDispatch();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    dispatch(fetchPlants(query));
-    setQuery('');
-  };
+    const handleSearch = () => {
+        if (searchTerm) {
+            dispatch(fetchPlants(searchTerm));
+        }
+    };
 
-  return (
-    <form onSubmit={handleSearch}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search for plants..."
-      />
-      <button type="submit">Search</button>
-    </form>
-  );
+    return (
+        <div className="search-bar">
+            <input
+                type="text"
+                placeholder="Search for plants..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+        </div>
+    );
 };
+
 export default SearchBar;

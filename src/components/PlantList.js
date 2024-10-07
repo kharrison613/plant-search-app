@@ -1,27 +1,23 @@
+// src/components/PlantList.js
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const PlantList = ({ data }) => {
-  // Check if data is loaded
-  if (!data) {
-    return <div>Loading...</div>; // Loading state
-  }
+const PlantList = () => {
+    const { plants, loading, error } = useSelector((state) => state.plants);
 
-  // Handle case where there's no data
-  if (data.length === 0) {
-    return <div>No plants found.</div>;
-  }
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
 
-  return (
-    <div className="plant-list">
-      {data.map((plant) => (
-        <div key={plant.id} className="plant-item">
-          <h3>{plant.name}</h3>
-          <p>{plant.description}</p>
-          {/* You can display more plant details here */}
-        </div>
-      ))}
-    </div>
-  );
+    return (
+        <ul className="plant-list">
+            {plants.map((plant) => (
+                <li key={plant.id}>
+                    <h2>{plant.name}</h2>
+                    <p>{plant.description}</p>
+                </li>
+            ))}
+        </ul>
+    );
 };
 
 export default PlantList;

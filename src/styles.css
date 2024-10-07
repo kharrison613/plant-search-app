@@ -1,0 +1,126 @@
+ /* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+} */
+.app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+.input-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+}
+
+.submit-button {
+    background-color: #849c84; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Top and bottom, left and right */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Increase font size */
+    margin: 4px 2px; /* Margins */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+.submit-button:hover {
+    background-color: #293229; /* Darker green on hover */
+}
+
+
+.app {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(170, 198, 170);
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a drop shadow */
+}
+
+input[type="text"] {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+} */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #f9f9f9; */
+    background-color: #bbe4c4; /* Light green background */
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #534f4f;
+}
+.app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.input-container {
+    display: flex; /* Align items in a row */
+    align-items: center; /* Center items vertically */
+}
+
+.text-input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding */
+    margin-right: 10px; /* Space between input and button */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.submit-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 20px; /* Top and bottom, left and right */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the button inline */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}

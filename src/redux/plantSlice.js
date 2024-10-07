@@ -30,20 +30,22 @@ export const { fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure } = plan
 
 export const fetchPlants =(climate) => async (dispatch) => {
     dispatch(fetchPlantsStart());
-    const url = `https://house-plants.p.rapidapi.com/climate/${climate}`;
     const options = {
         method: 'GET',
+        url: 'https://plants2.p.rapidapi.com/api/plants',
+        params: {CN: climate},
         headers: {
-            'x-rapidapi-key': 'process.env.REACT_APP_RAPIDAPI_KEY', 
-            'x-rapidapi-host': 'house-plants.p.rapidapi.com',
-        },
-    };
-
-
-    try {
-        const response = await axios.get(url, options);
+          'x-rapidapi-key': 'c312149a8cmsh4bb3256c083b9e0p12ee10jsn4240ffbe7b48',
+          'x-rapidapi-host': 'plants2.p.rapidapi.com',
+          Authorization: 'GKZOHNZj0xP65kk0BAE2Tl9LGagm0pfD3DFNxAEEZcMQBhRZVDco8vbNJdnwwCo0'
+        }
+      };
+      
+      try {
+          const response = await axios.request(options);
         dispatch(fetchPlantsSuccess(response.data));
     } catch (error) {
+        console.log(error);
         dispatch(fetchPlantsFailure(error.message));
     }
 };

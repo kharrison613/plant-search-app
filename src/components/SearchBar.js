@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux';
 import { fetchPlants } from '../redux/plantSlice';
 
 const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [climate, setClimate] = useState('');
     const dispatch = useDispatch();
 
     const handleSearch = () => {
-        if (searchTerm) {
-            dispatch(fetchPlants(searchTerm));
+        if (climate) {
+            dispatch(fetchPlants(climate));
         }
     };
 
@@ -17,9 +17,9 @@ const SearchBar = () => {
         <div className="search-bar">
             <input
                 type="text"
-                placeholder="Search for plants..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Tropical..."
+                value={climate}
+                onChange={(e) => setClimate(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
         </div>

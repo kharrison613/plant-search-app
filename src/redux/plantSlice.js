@@ -1,6 +1,7 @@
-// src/redux/plantSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+// import { fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure } from './redux/plantSlice';
+
 
 const plantSlice = createSlice({
     name: 'plants',
@@ -24,13 +25,23 @@ const plantSlice = createSlice({
         },
     },
 });
-
 export const { fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure } = plantSlice.actions;
 
-export const fetchPlants = (searchTerm) => async (dispatch) => {
+
+export const fetchPlants =(climate) => async (dispatch) => {
     dispatch(fetchPlantsStart());
+    const url = `https://house-plants.p.rapidapi.com/climate/${climate}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'process.env.REACT_APP_RAPIDAPI_KEY', 
+            'x-rapidapi-host': 'house-plants.p.rapidapi.com',
+        },
+    };
+
+
     try {
-        const response = await axios.get(`'https://house-plants.p.rapidapi.com/climate/Tropical'?=${searchTerm}`);
+        const response = await axios.get(url, options);
         dispatch(fetchPlantsSuccess(response.data));
     } catch (error) {
         dispatch(fetchPlantsFailure(error.message));

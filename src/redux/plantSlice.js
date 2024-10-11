@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure } from './redux/plantSlice';
 
 
 const plantSlice = createSlice({

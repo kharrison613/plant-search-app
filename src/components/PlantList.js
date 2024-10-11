@@ -14,7 +14,6 @@ console.log(plants);
     );
 
 
-    // function PlantList({ plants }) {
     return (
         <ul className="plant-list">
             {plants.map((plant) => (
@@ -33,16 +32,3 @@ console.log(plants);
 export default PlantList;
  
 
-//     return (
-//         <ul className="plant-list">
-//             { {plants.map((plant) => (
-//                 <li key={plant.id}>
-//                     <h2>{plant.name}</h2>
-//                     <p>{plant.description}</p>
-//                 </li>
-//             ))} }
-//         </ul>
-//     );
-// };
-
-// export default PlantList;

@@ -1,4 +1,5 @@
 # Plant Search App
+site deploys here:   https://plantidapp.netlify.app
 
 ## Technologies Used
 - **HTML, CSS, JavaScript**: Basic structure and styling.
@@ -8,9 +9,6 @@
 
 ## Approach
 This project uses React and Redux Toolkit to create a plant search application. The application allows users to search for plants and view care instructions. It utilizes AJAX to fetch plant data from an external API.
-
-## Live Site
-[Link to your live site](https://your-live-site-url)
 
 ## Usage Instructions
 1. Search for a plant using the search bar.

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PlantList from './frontend/src/components/pages/PlantList'; 
+// import PlantList from './src/PlantList'; 
 
 
 import { useDispatch, useSelector } from 'react-redux';

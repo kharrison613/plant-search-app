@@ -1,4 +1,3 @@
-// frontend/src/App.jsx
 import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -10,10 +9,11 @@ import CareTipManager from "./components/CareTipManager";
 import Home from "./components/pages/Home";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
-import Navbar from './components/Navbar'; // Import Navbar component
+import Navbar from './components/Navbar'; 
+import SearchBar from "./components/SearchBar"; 
+
 import './components/Navbar.css';
 
-// Configure the Redux store
 const store = configureStore({
   reducer: {
     plants: plantReducer,
@@ -27,6 +27,7 @@ const App = () => {
     <Provider store={store}>
       <Router>
       <Navbar /> {/* Navbar here to make it persistent across all routes */}
+      {/* <SearchBar /> */}
 
         <div className="app">
           {/* <Navbar /> Navbar here to make it persistent across all routes */}

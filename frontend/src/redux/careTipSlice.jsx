@@ -1,4 +1,3 @@
-// frontend/src/redux/careTipSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 

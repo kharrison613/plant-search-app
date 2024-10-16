@@ -1,11 +1,21 @@
-/* frontend/src/components/Navbar.css */
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-between;
     background-color: #4CAF50;
     padding: 10px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
+} */
+ .navbar {
+    width: 100%;
+    background-color: #3c5e3d; 
+    padding: 10px;
+    color: white;
+    text-align: center;
+    position: fixed; /* Sticks the navbar to the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .navbar a {
@@ -18,4 +28,35 @@
 
 .navbar a:hover {
     background-color: #45a049;
+} */ */
+/* Navbar.css */
+
+.navbar {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center; /* Center items vertically */
+    background-color: #4CAF50; /* Background color of the navbar */
+    padding: 10px 20px; /* Padding around the navbar */
+}
+
+.navbar ul {
+    list-style-type: none; /* Remove default bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for the list */
+}
+
+.navbar li {
+    margin: 0 15px; /* Space between items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.navbar a:hover {
+    color: #d4d4d4; /* Change color on hover */
 }

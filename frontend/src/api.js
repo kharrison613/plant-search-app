@@ -1,7 +1,6 @@
 import axios from 'axios';
-export default axios.create({
-    baseURL: '/api',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+
+export const getPlants = async () => {
+  const response = await axios.get('/api/plants'); // Check this URL
+  return response.data;
+};

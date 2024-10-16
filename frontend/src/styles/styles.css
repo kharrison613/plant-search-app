@@ -6,7 +6,9 @@ body {
     height: 100vh;
     background-color: #bbe4c4; 
 }
-
+h1, p, h2, p {
+    color: #534f4f;
+}
 .app {
     max-width: 600px;
     margin: 0 auto;
@@ -14,6 +16,10 @@ body {
     background-color: rgb(170, 198, 170);
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.home {
+    margin-top: 20px; /* Add space above the home section */
 }
 
 .title {
@@ -80,3 +86,4 @@ li {
 .navbar a:hover {
     background-color: #45a049;
 }
+

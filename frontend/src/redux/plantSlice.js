@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
 const plantSlice = createSlice({
     name: 'plants',
     initialState: {
@@ -22,30 +21,58 @@ const plantSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         },
+        addPlantSuccess: (state, action) => {
+            state.plants.push(action.payload);
+        },
+        updatePlantSuccess: (state, action) => {
+            const index = state.plants.findIndex(plant => plant._id === action.payload._id);
+            if (index !== -1) state.plants[index] = action.payload;
+        },
+        deletePlantSuccess: (state, action) => {
+            state.plants = state.plants.filter(plant => plant._id !== action.payload);
+        },
     },
 });
-export const { fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure } = plantSlice.actions;
 
+export const { 
+    fetchPlantsStart, fetchPlantsSuccess, fetchPlantsFailure,
+    addPlantSuccess, updatePlantSuccess, deletePlantSuccess 
+} = plantSlice.actions;
 
-export const fetchPlants =(climate) => async (dispatch) => {
+export const fetchPlants = () => async (dispatch) => {
     dispatch(fetchPlantsStart());
-    const options = {
-        method: 'GET',
-        url: 'https://plants2.p.rapidapi.com/api/plants',
-        params: {CN: climate},
-        headers: {
-          'x-rapidapi-key': 'c312149a8cmsh4bb3256c083b9e0p12ee10jsn4240ffbe7b48',
-          'x-rapidapi-host': 'plants2.p.rapidapi.com',
-          Authorization: 'GKZOHNZj0xP65kk0BAE2Tl9LGagm0pfD3DFNxAEEZcMQBhRZVDco8vbNJdnwwCo0'
-        }
-      };
-      
-      try {
-          const response = await axios.request(options);
+    try {
+        const response = await axios.get('/api/plants');
         dispatch(fetchPlantsSuccess(response.data));
     } catch (error) {
-        console.log(error);
         dispatch(fetchPlantsFailure(error.message));
+    }
+};
+
+export const addPlant = (newPlant) => async (dispatch) => {
+    try {
+        const response = await axios.post('/api/plants', newPlant);
+        dispatch(addPlantSuccess(response.data));
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const updatePlant = (id, updatedPlant) => async (dispatch) => {
+    try {
+        const response = await axios.put(`/api/plants/${id}`, updatedPlant);
+        dispatch(updatePlantSuccess(response.data));
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+export const deletePlant = (id) => async (dispatch) => {
+    try {
+        await axios.delete(`/api/plants/${id}`);
+        dispatch(deletePlantSuccess(id));
+    } catch (error) {
+        console.error(error);
     }
 };
 

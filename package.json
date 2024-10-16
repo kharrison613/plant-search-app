@@ -23,6 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "seed": "node ./seed.js",
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview"

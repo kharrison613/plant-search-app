@@ -1,61 +1,46 @@
-const express = require ('express');
-const Plant = require ('../models/Plant.js');
-
+const express = require('express');
 const router = express.Router();
+const Plant = require('../models/Plant');
 
 // GET all plants
 router.get('/', async (req, res) => {
-  try {
-    const plants = await Plant.find().populate('user');
-    res.json(plants);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+    try {
+        const plants = await Plant.find();
+        res.json(plants);
+    } catch (error) {
+        res.status(500).json({ error: 'Error fetching plants' });
+    }
 });
 
-// POST a new plant
+// ADD a new plant
 router.post('/', async (req, res) => {
-  const plant = new Plant({
-    name: req.body.name,
-    species: req.body.species,
-    waterFrequency: req.body.waterFrequency,
-    sunlight: req.body.sunlight,
-    user: req.body.user
-  });
-
-  try {
-    const newPlant = await plant.save();
-    res.status(201).json(newPlant);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
+    try {
+        const newPlant = new Plant(req.body);
+        const savedPlant = await newPlant.save();
+        res.status(201).json(savedPlant);
+    } catch (error) {
+        res.status(400).json({ error: 'Error saving plant' });
+    }
 });
 
-// PATCH an existing plant
-router.patch('/:id', async (req, res) => {
-  try {
-    const plant = await Plant.findById(req.params.id);
-    if (req.body.name) plant.name = req.body.name;
-    if (req.body.species) plant.species = req.body.species;
-    if (req.body.waterFrequency) plant.waterFrequency = req.body.waterFrequency;
-    if (req.body.sunlight) plant.sunlight = req.body.sunlight;
-    if (req.body.user) plant.user = req.body.user;
-
-    const updatedPlant = await plant.save();
-    res.json(updatedPlant);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
+// UPDATE an existing plant
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.json(updatedPlant);
+    } catch (error) {
+        res.status(400).json({ error: 'Error updating plant' });
+    }
 });
 
 // DELETE a plant
 router.delete('/:id', async (req, res) => {
-  try {
-    await Plant.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Plant deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+    try {
+        await Plant.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Plant deleted' });
+    } catch (error) {
+        res.status(400).json({ error: 'Error deleting plant' });
+    }
 });
 
 module.exports = router;

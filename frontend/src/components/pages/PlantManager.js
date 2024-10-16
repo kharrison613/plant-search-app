@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPlant, updatePlant, deletePlant } from '../redux/plantSlice';
+import { addPlant, updatePlant, deletePlant } from '../../redux/plantSlice';
 
 const PlantManager = () => {
     const dispatch = useDispatch();

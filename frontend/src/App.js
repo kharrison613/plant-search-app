@@ -1,41 +1,39 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import plantReducer from '../redux/plantSlice'; 
-import SearchBar from './components/SearchBar'; 
-import PlantList from './components/PlantList'; 
-import Register from './components/Register'; 
-import Login from './components/Login'; 
-import Home from './components/Home'; 
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { configureStore } from "@reduxjs/toolkit";
+import plantReducer from "./redux/plantSlice";
+import careTipReducer from "./redux/careTipSlice"; // Import care tip reducer
+import PlantManager from "./components/PlantManager";
+import CareTipManager from "./components/CareTipManager"; // Import care tip manager
+import Home from "./components/Home";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
+// Configure the Redux store
 const store = configureStore({
-    reducer: {
-        plants: plantReducer,
-    },
+  reducer: {
+    plants: plantReducer,
+    careTips: careTipReducer, // Add care tip reducer
+  },
 });
 
+// Main App component
 const App = () => {
-    return (
-        <Provider store={store}>
-            <Router>
-                <nav>
-                    <a href="/">Home</a>
-                    <a href="/register">Register</a>
-                    <a href="/login">Login</a>
-                </nav>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/" element={<Home />} />
-
-                     <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-                <SearchBar />
-                <PlantList />
-            </Router>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/plants" element={<PlantManager />} />
+          <Route path="/care-tips" element={<CareTipManager />} />{" "}
+          {/* Add care tip route */}
+        </Routes>
+      </Router>
+    </Provider>
+  );
 };
 
 export default App;

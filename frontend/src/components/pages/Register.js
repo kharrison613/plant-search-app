@@ -1,26 +1,24 @@
-// frontend/src/components/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/api/users/login', { username, password });
-            localStorage.setItem('authToken', response.data.token);
-            alert('Logged in successfully!');
+            const response = await axios.post('/api/users/register', { username, password });
+            alert('User registered successfully!');
         } catch (error) {
             console.error(error);
-            alert('Failed to log in');
+            alert('Failed to register');
         }
     };
 
     return (
-        <form onSubmit={handleLogin}>
-            <h2>Login</h2>
+        <form onSubmit={handleRegister}>
+            <h2>Register</h2>
             <input
                 type="text"
                 placeholder="Username"
@@ -35,9 +33,9 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
     );
 };
 
-export default Login;
+export default Register;

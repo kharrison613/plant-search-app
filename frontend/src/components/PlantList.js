@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-// Standard JavaScript function syntax and variable declaration
 function PlantList() {
   var plantsState = useSelector(function(state) { return state.plants; });
   var plants = plantsState.plants;

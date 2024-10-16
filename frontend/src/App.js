@@ -1,14 +1,24 @@
-// frontend/src/App.js
 import React from 'react';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Register from './components/Register';
-import Login from './components/Login';
-import Home from './components/Home';
+import plantReducer from '../redux/plantSlice'; 
+import SearchBar from './components/SearchBar'; 
+import PlantList from './components/PlantList'; 
+import Register from './components/Register'; 
+import Login from './components/Login'; 
+import Home from './components/Home'; 
+
+const store = configureStore({
+    reducer: {
+        plants: plantReducer,
+    },
+});
 
 const App = () => {
     return (
-        <Router>
-            <div>
+        <Provider store={store}>
+            <Router>
                 <nav>
                     <a href="/">Home</a>
                     <a href="/register">Register</a>
@@ -16,11 +26,15 @@ const App = () => {
                 </nav>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/register" element={<Register />} />
+                    <Route path="/" element={<Home />} />
+
+                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                 </Routes>
-            </div>
-        </Router>
+                <SearchBar />
+                <PlantList />
+            </Router>
+        </Provider>
     );
 };
 

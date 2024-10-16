@@ -7,6 +7,8 @@ import jwt from 'jsonwebtoken';
 
 // Load environment variables from .env file
 dotenv.config();
+console.log("Mongo URI: ", process.env.MONGO_URI);
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;

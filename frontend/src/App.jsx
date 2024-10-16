@@ -3,18 +3,18 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { configureStore } from "@reduxjs/toolkit";
 import plantReducer from "./redux/plantSlice";
-import careTipReducer from "./redux/careTipSlice"; // Import care tip reducer
-import PlantManager from "./components/PlantManager";
-import CareTipManager from "./components/CareTipManager"; // Import care tip manager
+import careTipReducer from "./redux/careTipSlice";
+import PlantManager from "../src/components/pages/PlantManager";
+import CareTipManager from "../src/components/CareTipManager"; 
 import Home from "./components/Home";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./components/pages/Register";
+import Login from "./components/pages/Login";
 
 // Configure the Redux store
 const store = configureStore({
   reducer: {
     plants: plantReducer,
-    careTips: careTipReducer, // Add care tip reducer
+    careTips: careTipReducer, 
   },
 });
 
@@ -29,7 +29,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/plants" element={<PlantManager />} />
           <Route path="/care-tips" element={<CareTipManager />} />{" "}
-          {/* Add care tip route */}
+          
+          
         </Routes>
       </Router>
     </Provider>

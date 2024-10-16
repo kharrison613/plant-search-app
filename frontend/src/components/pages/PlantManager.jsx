@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import PlantList from './frontend/src/components/pages/PlantList'; 
+
+
 import { useDispatch, useSelector } from 'react-redux';
 import { addPlant, updatePlant, deletePlant } from '../../redux/plantSlice';
 

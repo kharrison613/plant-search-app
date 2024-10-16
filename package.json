@@ -25,7 +25,7 @@
   "scripts": {
     "seed": "node ./seed.js",
     "start": "vite",
-    "backend": "node server.js", 
+    "backend": "node backend/server.js", 
     "dev": "concurrently \"npm run start\" \"npm run backend\"",
     "build": "vite build",
     "serve": "vite preview"

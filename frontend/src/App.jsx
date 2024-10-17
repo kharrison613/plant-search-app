@@ -21,7 +21,7 @@ const store = configureStore({
   },
 });
 
-// Main App component
+
 const App = () => {
   return (
     <Provider store={store}>

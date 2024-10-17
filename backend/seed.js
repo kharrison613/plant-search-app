@@ -6,7 +6,7 @@ import Plant from './models/plant.js';
 import CareTip from './models/careTip.js';
 
 const MONGO_URI = process.env.MONGO_URI;
-
+console.log('test')
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const seedDatabase = async () => {

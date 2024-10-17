@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 
 // Load environment variables from .env file
 dotenv.config();
-console.log("Mongo URI: ", process.env.MONGO_URI);
+// console.log("Mongo URI: ", process.env.MONGO_URI);
 
 
 const app = express();
@@ -20,10 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('Error connecting to MongoDB:', err));
 

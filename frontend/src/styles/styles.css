@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ h1, p, h2, p {
 
 .home {
     margin-top: 20px; /* Add space above the home section */
-}
+/* }
 
 .title {
     text-align: center;
@@ -86,4 +86,113 @@ li {
 .navbar a:hover {
     background-color: #45a049;
 }
+ */ */
 
+
+ body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #bbe4c4; 
+    margin: 20px;
+    padding: 20px;
+}
+
+h1, p, h2 {
+    color: #534f4f;
+}
+
+.app {
+    max-width: 100%;
+    margin: 30px;
+    padding: 10px;
+    background-color: rgb(170, 198, 170);
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.home {
+    margin-top: 20px; /* Add space above the home section */
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #534f4f;
+}
+
+.input-container {
+    display: flex; 
+    align-items: center; 
+}
+
+.text-input {
+    width: 100%; 
+    padding: 10px; 
+    margin-right: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.submit-button {
+    background-color: #4CAF50; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    transition: background-color 0.3s; 
+}
+
+.submit-button:hover {
+    background-color: #45a049; 
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 20px;
+    margin: 5px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2E7D32; /* Dark green background */
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    border: none; /* Remove borders */
+}
+
+.navbar a:hover {
+    background-color: #45a049;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    margin-top: 20px; /* Add space above the search bar */
+}
+
+.search-bar-container .text-input {
+    width: 80%; /* Make the search bar bigger */
+    padding: 10px; 
+    margin-right: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}

@@ -1,8 +1,7 @@
-// backend/controllers/plantController.js
-const Plant = require('../models/Plant');
+import Plant from '../models/Plant.js'; 
 
 // Get all plants
-const getPlants = async (req, res) => {
+export const getPlants = async (req, res) => {
     try {
         const plants = await Plant.find();
         res.json(plants);
@@ -12,7 +11,7 @@ const getPlants = async (req, res) => {
 };
 
 // Add a new plant
-const createPlant = async (req, res) => {
+export const createPlant = async (req, res) => {
     try {
         const newPlant = new Plant(req.body);
         const savedPlant = await newPlant.save();
@@ -23,9 +22,12 @@ const createPlant = async (req, res) => {
 };
 
 // Update a plant
-const updatePlant = async (req, res) => {
+export const updatePlant = async (req, res) => {
     try {
         const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!updatedPlant) {
+            return res.status(404).json({ error: 'Plant not found' });
+        }
         res.json(updatedPlant);
     } catch (error) {
         res.status(400).json({ error: 'Bad Request' });
@@ -33,18 +35,14 @@ const updatePlant = async (req, res) => {
 };
 
 // Delete a plant
-const deletePlant = async (req, res) => {
+export const deletePlant = async (req, res) => {
     try {
-        await Plant.findByIdAndDelete(req.params.id);
+        const deletedPlant = await Plant.findByIdAndDelete(req.params.id);
+        if (!deletedPlant) {
+            return res.status(404).json({ error: 'Plant not found' });
+        }
         res.status(204).end();
     } catch (error) {
         res.status(500).json({ error: 'Server Error' });
     }
-};
-
-module.exports = {
-    getPlants,
-    createPlant,
-    updatePlant,
-    deletePlant
 };

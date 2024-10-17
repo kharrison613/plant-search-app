@@ -1,5 +1,4 @@
-// backend/models/Plant.js
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 // const PlantSchema = new mongoose.Schema({
 //     CommonName: { type: String, required: true },
@@ -10,7 +9,7 @@ const mongoose = require('mongoose');
 // });
 
 // module.exports = mongoose.model('Plant', PlantSchema);
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 const plantSchema = new mongoose.Schema({
   name: { type: String, required: true },

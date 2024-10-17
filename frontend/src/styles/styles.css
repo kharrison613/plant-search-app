@@ -103,11 +103,19 @@ li {
 h1, p, h2 {
     color: #534f4f;
 }
+h1 {
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .app {
-    max-width: 100%;
+    max-width: 1200px;
+    margin-top: 300px;
+
     margin: 30px;
-    padding: 10px;
+    padding: 300px;
     background-color: rgb(170, 198, 170);
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 

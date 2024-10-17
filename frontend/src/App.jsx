@@ -5,30 +5,28 @@ import { configureStore } from "@reduxjs/toolkit";
 import plantReducer from "./redux/plantSlice";
 import careTipReducer from "./redux/careTipSlice";
 import PlantManager from "./components/pages/PlantManager";
-import CareTipManager from "./components/CareTipManager"; 
+import CareTipManager from "./components/CareTipManager";
 import Home from "./components/pages/Home";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
-import Navbar from './components/Navbar'; 
-import SearchBar from "./components/SearchBar"; 
-
-import './components/Navbar.css';
+import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+// import api from "./api";
+import "./components/Navbar.css";
 
 const store = configureStore({
   reducer: {
     plants: plantReducer,
-    careTips: careTipReducer, 
+    careTips: careTipReducer,
   },
 });
-
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
-      <Navbar /> {/* Navbar here to make it persistent across all routes */}
-      {/* <SearchBar /> */}
-
+        <Navbar /> {/* Navbar here to make it persistent across all routes */}
+        <SearchBar /> {/* <SearchBar /> */}
         <div className="app">
           {/* <Navbar /> Navbar here to make it persistent across all routes */}
           <Routes>

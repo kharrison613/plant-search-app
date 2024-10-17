@@ -1,0 +1,92 @@
+/* Container */
+.login-container {
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 3rem 2rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Logo */
+.logo {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Heading and Description */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Forgot Password */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 2rem;
+}
+
+.forgot-password a {
+    color: #007bff;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.login-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.login-button:hover {
+    background-color: #218838;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 2rem;
+}
+
+.register-link a {
+    color: #007bff;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
